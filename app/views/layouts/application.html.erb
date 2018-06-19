@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+  <link rel="stylesheet" href="main.css" >
+
+  <title>BezzNest</title>
+
+
+<% if session[:user] !=nil %>
+<div class="nav">
+      <div class="font-size-large">
+        <div class="container">
+          <ul class="pull-left">
+            <%= image_tag("beeznest.png") %>
+            <li><%= link_to "Home", "/users/home" %></li>
+            <li><a href="#"><%= link_to "Noifications", "/users/notifications" %></a></li>
+            <li><%= link_to "View Your profile", "/users/view/#{session[:user]}" %></li>
+          </ul>
+          <ul class="pull-right">
+            <div class="right-nav-padding" >
+              <li><%= link_to "Search", "/users/show_user" %> </li>
+              <li><%= link_to "messages", "/conversations" %></li>
+              <li><%= link_to "logout", "/users/logout" %></li>
+            </div>
+          </ul>
+        </div>
+      </a>
+</div>
+<% end %>
+
+
+
+<% if false %>
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+<% end %>
+<% if false %>
+<div class="left" style="position:relative;left:0px;top:-10px;">
+  <% flash.each do |type, message| %>
+<p> <%= type + " " + message %> </p>
+<% end %>
+</div>
+<% end %>
+
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ <%= csrf_meta_tags %>
+</head>
+<body>
+<div class= "main">
+  <div class="text-center">
+    <div class="flash">
+      <% flash.each do |type, message| %>
+      <p> <%= type + " " + message %> </p>
+      <% end %>
+    </div>
+  </div>
+  <%= yield %>
+</div>
+<% flash.each do |type, message| %>
+<p> <%= type + " " + message %> </p>
+<% end %>
+<% if false %>
+<%= link_to "View Your profile", "/users/view/#{session[:user]}" %> <br>
+<%= link_to "logout", "/users/logout" %> <br>
+<%= link_to "show all users", "/users/show_user" %> <br>
+<%= link_to "Search", "/users/show_user" %> <br>
+<%= link_to "Home", "/users/home" %> <br>
+<%= link_to "Edit User", "/users/edit" %> <br>
+<%= link_to "Noifications", "/users/notifications" %> <br>
+<%= link_to "messages", "/conversations" %>
+<% end %>
+  <% if session[:user] !=nil %>
+    <footer class="footer">
+      <div class="center-text">
+        <div class="container">
+          <p class="text-muted">Copy write BeesNest 2016</p>
+          <p class="text-muted">If you have any problems please contact </p>
+        </div>
+      </div>
+    </footer>
+  <% end %>
+</body>
+
+
+</html>
+
+
