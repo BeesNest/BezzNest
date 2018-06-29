@@ -34,9 +34,10 @@
   /* Container */
   .container {
     position: absolute;
-    width: 24em;
+    width: 48em;
     left: 50%;
-    top: 50%;
+    top: 100%;
+    padding-top:  300px;
     transform: translate(-50%,-50%);
     animation: intro .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   }
@@ -52,7 +53,7 @@
     height: auto;
     opacity: 1;
     transform: translateY(-6em);
-    padding-top: 12em;
+    padding-top: 24em;
   }
   .profile--open .profile__fields {
     opacity: 1;
@@ -68,8 +69,9 @@
     visibility: hidden;
     opacity: 0;
     height: 0;
-    padding: 3em;
+    padding: 10em;
     border-radius: .25em;
+    font-size:11pt;
     -webkit-filter: drop-shadow(0 0 2em rgba(0,0,0,0.2));
     transition: 
       opacity .4s ease-in-out,
@@ -233,7 +235,6 @@
 <% end%>
 <%end %>
 
-<%= link_to "Register New Buisness", "/users/new" %>
 <script type="text/javascript">
 /* Simple VanillaJS to toggle class */
 [].map.call(document.querySelectorAll('.profile'), function(el) {

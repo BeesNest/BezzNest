@@ -6,6 +6,9 @@
   <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
   <link rel="stylesheet" href="main.css" >
 
+  <%= stylesheet_link_tag("application") %>
+ <%= stylesheet_link_tag("homescreen") %>
+
   <title>BezzNest</title>
 
 
@@ -55,19 +58,24 @@
  <%= csrf_meta_tags %>
 </head>
 <body>
+
 <div class= "main">
   <div class="text-center">
     <div class="flash">
       <% flash.each do |type, message| %>
       <p> <%= type + " " + message %> </p>
       <% end %>
+
     </div>
+
   </div>
+
   <%= yield %>
 </div>
 <% flash.each do |type, message| %>
 <p> <%= type + " " + message %> </p>
 <% end %>
+
 <% if false %>
 <%= link_to "View Your profile", "/users/view/#{session[:user]}" %> <br>
 <%= link_to "logout", "/users/logout" %> <br>

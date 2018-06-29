@@ -226,8 +226,10 @@ position: relative;
 }
 .panel-body-rounded {
   border-radius: 0px;
+  text-align: center;
   border-bottom-left: 25px;
   border-bottom-right: 25px;
+  position: relative;
 }
 
 .right-nav-padding {
@@ -263,6 +265,9 @@ padding-bottom: 0px;
   text-align: center;
 }
 
+.profile-info {
+  padding-bottom: 20px;
+}
 
 
 /* this is buttons*/
@@ -380,6 +385,13 @@ padding-bottom: 0px;
   color: white;
 }
 
+.flash {
+  display: inline-block;
+  width: 1000px;
+  border: 1px solid #000;
+  text-align: center;
+
+}
 /* this is where i do the nav bar  */
 /*
 ul {
