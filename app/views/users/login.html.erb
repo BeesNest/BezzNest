@@ -37,7 +37,7 @@
     width: 48em;
     left: 50%;
     top: 100%;
-    padding-top:  300px;
+    padding-top:  500px;
     transform: translate(-50%,-50%);
     animation: intro .7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   }
@@ -192,14 +192,16 @@
 
 <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
-
-
+  <%= stylesheet_link_tag("application") %>
+ <%= stylesheet_link_tag("homescreen") %>
+ 
 <div class="container">
-  <div class="profile" style="position:relative;left:0px;top:300px;">
+  <div class="profile profile--open" style="position:relative;left:0px;top:300px;">
     <button class="profile__avatar" id="toggleProfile">
       <%= image_tag "noprofil.png", "alt" => "Avatar" %>
 
     </button>
+    
     <div class="profile__form" style="position:relative;left:0px;top:0px;">
       <div class="profile__fields">
         <%= form_for(:user, :method => :post, :url =>{:action => :post_login}) do |form| %>
@@ -219,7 +221,11 @@
       </div>
      </div>
   </div>
+      <div class="behind-text">
+      <p>BeesNest is a online Buisness to Buinsess platfrom that allows buisnesses to connect seemlessly and efficently. Create your buisness profile and get started today!  </p> 
+    </div>
 </div>
+
 
         <%= javascript_include_tag "application" %>
 <% if false %>
