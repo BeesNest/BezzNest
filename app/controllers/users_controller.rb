@@ -35,9 +35,13 @@ class UsersController < ApplicationController
 
 
 		user.year_founded = params[:year_founded]
+		user.location = params[:location]
+		# loc = user.location
+		# user.gmaploc = loc.gsub!(/\s/,'+')
+
 
 		if user.save()
-			flash[:success] = " usersuccesfully created"
+			flash[:success] = " user succesfully created"
 			session[:user] = user.id
 			redirect_to(:controller => "users", :action => "home")
 		else
@@ -77,8 +81,11 @@ class UsersController < ApplicationController
 		if require_login 
 			return
 		end
+		puts "AFIUBGFPAIUFHAPIUFHAUFIHAPIUFHPIUFHPF"
 		@user = User.find(params[:id])
+		puts "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
 		@current_user = User.find(session[:user])
+		puts "CCCCCCCCCCCCCCCCCCCCCCC"
 		#if session[:id] == @user
 
 		#end

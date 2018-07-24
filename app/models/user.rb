@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
 	validates :company_name, presence: true 
 	validates :company_type, presence: true
 	validates :year_founded, presence: true
+	validates :location, presence: true
 	has_many :posts
 	has_many :comments
 	has_many :notifications

@@ -4,17 +4,25 @@
 		<h3> <%= @user.login %> </h3>
 		<% end %>
 		<div class="company-field-name" style="position:absolute; left:100px; top:50px;">
-			<h3> <%= @user.company_name %> </h3>
+			<!-- <h3> <%= @user.company_name %> </h3> -->
 		</div>
 		<div class="profile-info">
 			<h3><%= @user.company_name %> was founded in <%= @user.year_founded %> </h3>
+			<h3><%= @user.company_name %> is located at <%= @user.location %> </h3>
 		</div>
 		
 	</div>
 </div>
 
-
-
+<div class="ifram">
+	 <iframe
+	  width="600"
+	  height="450"
+	  frameborder="0" style="border:0"
+	  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJbEIdCM2byxkoLUn4LhiL2V8uh1gwDqU
+	    &q=<%= @user.location %>" allowfullscreen>
+	</iframe>
+</div>
 <%= stylesheet_link_tag("application") %>
  <%= stylesheet_link_tag("homescreen") %>
 
@@ -31,25 +39,22 @@
 
 					</div>
 					<div class="rounded-bottom-post" style="position:absolute; left:0px; top:100px;">
-
-					</div>
-					
+					</div>			
 			</div>
-
 </div>
-	
 <% end %>
+
+
+
  <% if @user.id != session[:user] %>
  	<%= link_to 'Message me!',"/conversations/convo?recipient_id=#{@user.id}&sender_id=#{session[:user]}" %>
  	<% if !(@user.friends.include? @current_user) %>
  		<%= link_to 'send friend request',"/users/#{@user.id}/generate_friend_request" %>
  	<% end %>
 
-
-
-
-
 <% end %>
+
+
 <div class="center-text">
 	<h1>This is your Partnership list</h1>	
 </div>

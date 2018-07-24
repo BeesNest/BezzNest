@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%= stylesheet_link_tag("application") %>
 <html lang="en">
     <head> 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,14 +34,12 @@
 					<form class="form-horizontal" method="post" action="#">
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Username</label>
-							<div class="tooltip"> This is where you login
-							<span class="tooltiptext"> This is the user name you login</span>
-							
-							</div>
 							<div class="cols-sm-10">
 								
-								<div class="input-group">
+								<div class="input-group tooltiporg">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"><%=text_field_tag(:login)%></i></span>
+
+									<span class="tooltiptextorg">This is the username you will login with</span>
 									
 								</div>
 								
@@ -50,9 +49,10 @@
 						<div class="form-group">
 							<label for="email" class="cols-sm-2 control-label">Password</label>
 							<div class="cols-sm-10">
-								<div class="input-group">
+								<div class="input-group tooltiporg">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"><%=form.password_field(:password)%></i></span>
-									
+
+									<span class="tooltiptextorg">This is your password use it to login</span>
 								</div>
 							</div>
 						</div>
@@ -60,9 +60,9 @@
 						<div class="form-group">
 							<label for="username" class="cols-sm-2 control-label">Company Name</label>
 							<div class="cols-sm-10">
-								<div class="input-group">
+								<div class="input-group tooltiporg">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"><%=text_field_tag(:company)%></i></span>
-									
+									<span class="tooltiptextorg">This is your companys name, Other companys will see this</span>
 								</div>
 							</div>
 						</div>
@@ -70,9 +70,9 @@
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Company Type</label>
 							<div class="cols-sm-10">
-								<div class="input-group">
+								<div class="input-group tooltiporg">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"><%=text_field_tag(:company_type)%></i></span>
-									
+										<span class="tooltiptextorg">This is the type of company that you are</span>
 								</div>
 							</div>
 						</div>
@@ -80,9 +80,21 @@
 						<div class="form-group">
 							<label for="password" class="cols-sm-2 control-label">Founding year</label>
 							<div class="cols-sm-10">
-								<div class="input-group">
+								<div class="input-group tooltiporg">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"><%=text_field_tag(:year_founded)%></i></span>
 									
+									<span class="tooltiptextorg">This is the officul founding your of your company</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Location</label>
+							<div class="cols-sm-10">
+								<div class="input-group tooltiporg">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"><%=text_field_tag(:location)%></i></span>
+									
+									<span class="tooltiptextorg">This is the officul founding your of your company</span>
 								</div>
 							</div>
 						</div>
@@ -177,6 +189,35 @@ input::-webkit-input-placeholder {
   font-size: 11px;
   text-align: center;
 }
+
+/* Tooltip container */
+.tooltiporg {
+    position: relative;
+    display: inline-block;
+    border-bottom: 0px dotted black;
+    visibility: visible; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltiptextorg {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltiporg:hover .tooltiptextorg {
+    visibility: visible;
+}
+
 </style>
 
 
