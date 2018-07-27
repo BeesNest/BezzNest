@@ -87,10 +87,11 @@
   	<div class="user-container">
 	  	<div class="User-name ">
 		 	<div class="center-text">
+		 		<% if @user.id == session[:user] %>
 				<h1>This is your Partnership list</h1>	
 			</div>
 			<div class="">
-				<% if @user.id == session[:user] %>
+				
 					<% for friend in @user.friends %>
 						<%= friend.login %> <br>
 					<% end %>
