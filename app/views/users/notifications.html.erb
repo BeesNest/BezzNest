@@ -15,7 +15,7 @@
 	<% elsif notification.topic_id == 2 %>
 		<div class="panel-notification">
 			<%= notification.contents %>
-			<a href="<%= "/users/view/#{notification.link.gsub(/[^\d]/, '')}" %>" class="notificationButton">View User</a>
+			<a href="<%= "/users/view/#{notification.link.gsub(/[^\d]/, '')}" %>" class="notificationButton">  View User</a>
 			
 			<a href="<%= notification.link %>" class="notificationButton">Accept</a>
 			

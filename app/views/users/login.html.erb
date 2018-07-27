@@ -214,8 +214,12 @@
           <label for="fieldPassword" class="label">Password</label>
         </div>
         <div class="profile__footer">
-        <%=submit_tag('log in') %>
-        <%= link_to "Register New Buisness", "/users/new" %>
+          <div>
+            
+          </div>
+        <%=submit_tag('log in', :class => "Registure")%>
+        <a href="/users/new" class="Registure">Registure a new account</a>
+        
         <% end %>
         </div>
       </div>

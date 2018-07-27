@@ -70,7 +70,10 @@
 
   </div>
 
-  <%= yield %>
+    <%= yield %>
+    <% if session[:user] !=nil %>
+      <div class="push"></div>
+    <% end %>
 </div>
 <% flash.each do |type, message| %>
 <p> <%= type + " " + message %> </p>
@@ -86,17 +89,15 @@
 <%= link_to "Noifications", "/users/notifications" %> <br>
 <%= link_to "messages", "/conversations" %>
 <% end %>
+
   <% if session[:user] !=nil %>
-    <footer class="footer">
-      <div class="center-text">
-        <div class="container">
-          <p class="text-muted">Copy write BeesNest 2016     <%= link_to "Privacy Policy", "/home" %></p>
-          <p class="text-muted">If you have any problems please contact</p>
+    <div class="footerOveride">
+          <p class="text-muted">Copy write BeesNest 2016     <%= link_to "Privacy Policy", "/users/Privacy_Policy" %></p>
+          <p class="text-muted">If you have any problems, please contact</p>
+          <%= link_to "Terms and Conditions", "/users/Terms_conditions" %>
           
           <p class="text-muted"></p>
-        </div>
-      </div>
-    </footer>
+    </div>
   <% end %>
 </body>
 

@@ -15,11 +15,12 @@
 <% for user in @users %>
 	<div class="boxed-users">
 		<div class="center-text">
-			<%= link_to user.login, "/users/view/#{user.id}" %>
-			<p> <%= user.company_name %> </p>
-			<p> <%= user.company_type %> </p> 
-			<p> <%= user.location %> </p>
-			
+			<div class="search-padding">
+				<%= link_to user.login, "/users/view/#{user.id}" %>
+				<p> <%= user.company_name %> </p>
+				<p> <%= user.company_type %> </p> 
+				<p> <%= user.location %> </p>
+			</div>
 			<br>
 		</div>
 	</div>

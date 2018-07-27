@@ -1,67 +1,118 @@
-<div class="text-center">
-	<div class="">
-		<% if false%>
-		<h3> <%= @user.login %> </h3>
-		<% end %>
-		<div class="company-field-name" style="position:absolute; left:100px; top:50px;">
-			<!-- <h3> <%= @user.company_name %> </h3> -->
+	<%= stylesheet_link_tag("application") %>
+	<%= stylesheet_link_tag("homescreen") %>
+
+<div class="row">
+  <div class="column lefts">
+	<div class="user-content-title font-large">
+		<p>Information on this user</p>
+		<dir class="user-container">
+			<div class="User-name">
+				<h1><%= @user.company_name %></h3>
+				<h4><%= @user.company_name %> was founded in <%= @user.year_founded %> </h4>
+				<h4><%= @user.company_name %> is located at <%= @user.location %> </h4>
+				<h4><%= @user.company_name %> considers itself to be a <%= @user.company_type %> company</h4>
+			</div>	
+		</dir>
+	</div>
+
+	<div class="text-center">
+		<div class="">
+			<% if false%>
+			<h3> <%= @user.login %> </h3>
+			<% end %>
+			<div class="company-field-name" style="position:absolute; left:100px; top:50px;">
+				<!-- <h3> <%= @user.company_name %> </h3> -->
+			</div>
+			<div class="profile-info">
+				
+				
+			</div>
+			
 		</div>
-		<div class="profile-info">
-			<h3><%= @user.company_name %> was founded in <%= @user.year_founded %> </h3>
-			<h3><%= @user.company_name %> is located at <%= @user.location %> </h3>
+	</div>
+
+
+  </div>
+
+  <!-- The end of this column -->
+
+  <div class="column middles">
+  	
+	<div class="containermapbox">
+		<div class="text-center font-large">
+			<h4><%= @user.company_name %>'s location on a map</h4>
 		</div>
 		
-	</div>
-</div>
+		<div class="ifram">
+			<div class="iframebox">
+				 <iframe
+				  width="550"
+				  height="450"
+				  frameborder="30px" style="background-color: white"
 
-<div class="ifram">
-	 <iframe
-	  width="600"
-	  height="450"
-	  frameborder="0" style="border:0"
-	  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJbEIdCM2byxkoLUn4LhiL2V8uh1gwDqU
-	    &q=<%= @user.location %>" allowfullscreen>
-	</iframe>
-</div>
-<%= stylesheet_link_tag("application") %>
- <%= stylesheet_link_tag("homescreen") %>
-
-<% for post in @user.posts %>
-<div class="panel">
-		<div style="position:relative;left:-1px;top:-20px;">
-			<div class="panel-default">
-				
-					<div class="panel-heading"><h4><%= post.title %></h4></div>
-		</div>		
-        			<div class="panel-body-rounded">
-       					<p> <%= post.content %></p>
-       					<%= link_to post.user.login, "/users/view/#{post.user.id}" %>
-
-					</div>
-					<div class="rounded-bottom-post" style="position:absolute; left:0px; top:100px;">
-					</div>			
+				  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAJbEIdCM2byxkoLUn4LhiL2V8uh1gwDqU
+				    &q=<%= @user.location %>" allowfullscreen>
+				</iframe>
 			</div>
-</div>
-<% end %>
+		</div>
+	</div>
 
 
+	<div class="center">
+		<h1>Your Posts</h1>
+	</div>
+	<% for post in @user.posts %>
+	<div class="panel toppad">
+			<div style="position:relative;left:-1px;top:-20px;">
+				<div class="panel-default">
+					
+						<div class="panel-heading"><h4><%= post.title %></h4></div>
+				</div>		
+	        			<div class="panel-body-rounded">
+	       					<p> <%= post.content %></p>
+	       					<%= link_to post.user.login, "/users/view/#{post.user.id}" %>
 
- <% if @user.id != session[:user] %>
- 	<%= link_to 'Message me!',"/conversations/convo?recipient_id=#{@user.id}&sender_id=#{session[:user]}" %>
- 	<% if !(@user.friends.include? @current_user) %>
- 		<%= link_to 'send friend request',"/users/#{@user.id}/generate_friend_request" %>
- 	<% end %>
-
-<% end %>
-
-
-<div class="center-text">
-	<h1>This is your Partnership list</h1>	
-</div>
-<div class="boxed">
-	<% if @user.id == session[:user] %>
-		<% for friend in @user.friends %>
-			<%= friend.login %> <br>
-		<% end %>
+						</div>
+						<div class="rounded-bottom-post" style="position:absolute; left:0px; top:100px;">
+						</div>			
+			</div>
+	</div>
 	<% end %>
+
+  </div>
+
+  <!-- End of column -->
+
+  <div class="column rights">
+  	<div class="user-container">
+	  	<div class="User-name ">
+		 	<div class="center-text">
+				<h1>This is your Partnership list</h1>	
+			</div>
+			<div class="">
+				<% if @user.id == session[:user] %>
+					<% for friend in @user.friends %>
+						<%= friend.login %> <br>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+  </div>
+  <!-- End of final culmn -->
 </div>
+
+
+
+
+
+
+	 <% if @user.id != session[:user] %>
+	 	<%= link_to 'Message me!',"/conversations/convo?recipient_id=#{@user.id}&sender_id=#{session[:user]}" %>
+	 	<% if !(@user.friends.include? @current_user) %>
+	 		<%= link_to 'send friend request',"/users/#{@user.id}/generate_friend_request" %>
+	 	<% end %>
+
+	<% end %>
+
+

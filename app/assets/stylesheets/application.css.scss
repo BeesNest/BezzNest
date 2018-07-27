@@ -78,6 +78,8 @@
 background-color: #EDAC2E;
 /*left:90px; top:0px; right:0; bottom:0;*/
 position: relative;
+height: 100%;
+
 }
 
 
@@ -292,7 +294,108 @@ padding-bottom: 0px;
 .ifram {
   align-content: center;
   text-align: center;
+  padding-top: 0px !important ;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
 
+}
+
+.iframebox {
+  padding-top: 25px !important;
+/*  padding-left: 25px !important;
+  padding-right: 25px !important;*/
+  border-top: 25px !important;
+  border-left: 25px !important;
+  border-right: 25px !important;  
+
+
+}
+
+.containermapbox {
+  margin-right: 0px;
+
+}
+
+.Registure {
+  background-color:#F5D25B;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  border:2px solid #F5D25B;
+  display:inline-block;
+  cursor:pointer;
+  color:#333333;
+  font-family:Arial;
+  font-size:13px;
+  font-weight:bold;
+  padding:4px 15px;
+  text-decoration:none;
+}
+.Registure:hover {
+  background-color:#ffab23;
+}
+.Registure:active {
+  position:relative;
+  top:1px;
+}
+
+.toppad{
+  margin-top:50px;
+
+}
+
+.User-name{
+  margin: 25px;
+  margin-top: 15px;
+}
+
+.user-container {
+  margin-bottom: 0px;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  width:500px;
+  padding-left: 0;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+
+.user-content-title {
+  padding-left: 25px;
+  padding-bottom: 15px;
+  padding-top: 0px;
+  padding-right: 25px;
+}
+
+.font-large{
+  font-size: 20px;
+}
+
+.column {
+    float: left;
+}
+
+.lefts, .rights {
+    width: 25%;
+}
+
+.middles {
+    width: 50%;
+}
+
+.search-padding {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* Tooltip container */
@@ -419,13 +522,22 @@ padding-bottom: 0px;
 }
 
 /*footer stuff */
-.footer {
+.wrapped {
+   min-height: 100%;
+   height: auto !important;
+   height: 100%;
+   margin: 0 auto -142px
+}
+
+.footerOveride, .push{
   overflow: hidden;
   white-space: nowrap; 
-  white-space: nowrap
+  white-space: nowrap;
+  height: 142px;
+
 }
 .textmuted {
-  white-space: nowrap
+  white-space: nowrap;
 }
 .company-field-name {
   font-size:30px;
